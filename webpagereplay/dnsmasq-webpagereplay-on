@@ -1,0 +1,5 @@
+user=root
+cache-size=0
+listen-address=127.0.0.1
+address=/wikipedia.org/127.0.0.1
+address=/upload.wikimedia.org/127.0.0.1

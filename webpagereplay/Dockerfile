@@ -5,6 +5,7 @@ FROM sitespeedio/browsertime:2.0.0
 WORKDIR /work
 RUN sudo apt-get update && sudo apt-get install libnss3-tools \
   curl \
+  dnsmasq \
   git \
   iproute2 -y && \
   mkdir -p $HOME/.pki/nssdb && \
@@ -23,6 +24,8 @@ RUN go get github.com/urfave/cli && \
 WORKDIR /root/go/src/github.com/catapult-project/catapult/web_page_replay_go
 RUN go run src/wpr.go installroot
 
+COPY dnsmasq-webpagereplay-off /dnsmasq-webpagereplay-off
+COPY dnsmasq-webpagereplay-on /dnsmasq-webpagereplay-on
 COPY start.sh /start.sh
 
 WORKDIR /browsertime
